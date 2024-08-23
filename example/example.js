@@ -8,7 +8,7 @@ import { read } from 'to-vfile'
 
 const file = await remark()
    .use(remarkRehype)
-   .use(rehypeBlock)
+   .use(rehypeBlock, { wrapperTag: 'div' })
    .use(rehypeDocument)
    .use(rehypeFormat, { indent: '\t' })
    .use(rehypeStringify)

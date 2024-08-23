@@ -84,5 +84,7 @@ The follwoing options are available:
 
 -  `blockSymbol` (`string`, optional) — symbol to be used to define a block. Default is `:::`.
 
+-  `wrapperTag` (`string`, optional) — tag name to be used to wrap the content of a block. Default is no wrapper tag.
+
 [rehype]: https://github.com/rehypejs/rehype
 [build-badge]: https://github.com/thomd/rehype-block/workflows/plugin-test/badge.svg

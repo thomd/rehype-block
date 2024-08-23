@@ -5,6 +5,7 @@ import { findAllAfter } from 'unist-util-find-all-after'
 const rehypeBlock = (opts) => {
    const defaultOptions = {
       blockSymbol: ':::',
+      wrapperTag: null,
    }
    const options = { ...defaultOptions, ...opts }
    return (tree) => {
@@ -31,7 +32,7 @@ const rehypeBlock = (opts) => {
                   type: 'element',
                   tagName: tag,
                   properties: {},
-                  children: [...allAfter],
+                  children: options.wrapperTag ? [{ type: 'element', tagName: options.wrapperTag, properties: {}, children: [...allAfter] }] : [...allAfter],
                }
                parent.children.splice(start, end - start + 2, wrapper)
             }
