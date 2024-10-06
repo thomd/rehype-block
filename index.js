@@ -6,6 +6,7 @@ const rehypeBlock = (opts) => {
    const defaultOptions = {
       blockSymbol: ':::',
       classSymbol: ':',
+      prefixClassWithBlockSymbol: false,
       wrapperTag: null,
    }
    const options = { ...defaultOptions, ...opts }
@@ -21,7 +22,7 @@ const rehypeBlock = (opts) => {
             if (matcher) {
                const matching = matcher[1].split(options.classSymbol)
                const tag = matching[0]
-               const className = matching[1] ? matching[1] : null
+               const className = matching[1] ? options.prefixClassWithBlockSymbol ? tag + matching[1] : matching[1] : null
                start = index
                let foundClosing = false
                const allAfter = findAllAfter(parent, index, (node) => {

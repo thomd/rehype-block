@@ -96,6 +96,8 @@ The follwoing options are available:
 
 -  `classSymbol` (`string`, optional) — symbol to be used to separate an optional CSS class-name. Default is `:`.
 
+-  `prefixClassWithBlockSymbol` (`Boolean`, optional) — prefix CSS class-name with block symbol. Default is `false`.
+
 -  `wrapperTag` (`string`, optional) — tag name to be used to wrap the content of a block. Default is no wrapper tag.
 
 [rehype]: https://github.com/rehypejs/rehype
