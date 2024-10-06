@@ -4,7 +4,7 @@
 
 `rehype-block` is a [rehype][rehype] plugin to wrap a block of markdown with a HTML tag. So what is does in fact is simply replacing markdown lines like for example `:::aside` and `:::` with `<aside>` and `</aside>` respectively.
 
-The opening block requires an appended name to be used for the HTML tag (see example below)
+The opening block requires an appended name to be used for the HTML tag (see example below).
 
 > [!NOTE]
 > This plugin does in fact the same as the plugin [remark-directive](https://github.com/remarkjs/remark-directive) but is less generic which can be a better fit for certain markdown situations. If you need more flexibility, use `remark-directive` instead.
@@ -76,6 +76,10 @@ then running `node example.js` yields:
 </html>
 ```
 
+## Test
+
+    npm run test
+
 ## API
 
 The default export is `rehypeBlock`.
@@ -93,10 +97,6 @@ The follwoing options are available:
 -  `classSymbol` (`string`, optional) — symbol to be used to separate an optional CSS class-name. Default is `:`.
 
 -  `wrapperTag` (`string`, optional) — tag name to be used to wrap the content of a block. Default is no wrapper tag.
-
-### Test
-
-    npm run test
 
 [rehype]: https://github.com/rehypejs/rehype
 [build-badge]: https://github.com/thomd/rehype-block/workflows/plugin-test/badge.svg
