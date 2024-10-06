@@ -1,10 +1,24 @@
 # headline
 
+:::aside:aside-1
+
+foo
+
+:::
+
+text
+
 :::aside
 
 foo
 
-bar
+:::
+
+text
+
+:::aside:aside-2
+
+foo
 
 :::
 

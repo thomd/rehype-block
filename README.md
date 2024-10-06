@@ -20,11 +20,15 @@ Say we have the following markdown file `example.md`:
 
 foo
 
-bar
-
 :::
 
 text
+
+:::aside:aside-1
+
+bar
+
+:::
 ```
 
 and a module `example.js`:
@@ -40,7 +44,7 @@ import { read } from 'to-vfile'
 
 const file = await remark()
    .use(remarkRehype)
-   .use(rehypeBlock, { blockSymbol: ':::' })
+   .use(rehypeBlock, { blockSymbol: ':::', classSymbol: ':' })
    .use(rehypeDocument)
    .use(rehypeFormat, { indent: '\t' })
    .use(rehypeStringify)
@@ -63,9 +67,11 @@ then running `node example.js` yields:
       <h1>headline</h1>
       <aside>
          <p>foo</p>
-         <p>bar</p>
       </aside>
       <p>text</p>
+      <aside class="aside-1">
+         <p>bar</p>
+      </aside>
    </body>
 </html>
 ```
@@ -84,7 +90,13 @@ The follwoing options are available:
 
 -  `blockSymbol` (`string`, optional) — symbol to be used to define a block. Default is `:::`.
 
+-  `classSymbol` (`string`, optional) — symbol to be used to separate an optional CSS class-name. Default is `:`.
+
 -  `wrapperTag` (`string`, optional) — tag name to be used to wrap the content of a block. Default is no wrapper tag.
+
+### Test
+
+    npm run test
 
 [rehype]: https://github.com/rehypejs/rehype
 [build-badge]: https://github.com/thomd/rehype-block/workflows/plugin-test/badge.svg

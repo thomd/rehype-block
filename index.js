@@ -5,6 +5,7 @@ import { findAllAfter } from 'unist-util-find-all-after'
 const rehypeBlock = (opts) => {
    const defaultOptions = {
       blockSymbol: ':::',
+      classSymbol: ':',
       wrapperTag: null,
    }
    const options = { ...defaultOptions, ...opts }
@@ -18,7 +19,9 @@ const rehypeBlock = (opts) => {
             const pattern = new RegExp(options.blockSymbol + '(.+)$')
             const matcher = toString(node).match(pattern)
             if (matcher) {
-               const tag = matcher[1]
+               const matching = matcher[1].split(options.classSymbol)
+               const tag = matching[0]
+               const className = matching[1] ? matching[1] : null
                start = index
                let foundClosing = false
                const allAfter = findAllAfter(parent, index, (node) => {
@@ -31,7 +34,7 @@ const rehypeBlock = (opts) => {
                const wrapper = {
                   type: 'element',
                   tagName: tag,
-                  properties: {},
+                  properties: className != null ? { className: [className] } : {},
                   children: options.wrapperTag ? [{ type: 'element', tagName: options.wrapperTag, properties: {}, children: [...allAfter] }] : [...allAfter],
                }
                parent.children.splice(start, end - start + 2, wrapper)
