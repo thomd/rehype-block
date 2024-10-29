@@ -90,7 +90,7 @@ unified().use(rehypeBlock, options)
 
 ### Options
 
-The follwoing options are available:
+The following options are available:
 
 -  `blockSymbol` (`string`, optional) — symbol to be used to define a block. Default is `:::`.
 
