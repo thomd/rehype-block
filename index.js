@@ -17,7 +17,7 @@ const rehypeBlock = (opts) => {
          (node, index, parent) => {
             let start = null
             let end = null
-            const pattern = new RegExp(options.blockSymbol + '(.+)$')
+            const pattern = new RegExp('^' + options.blockSymbol + '(.+)$')
             const matcher = toString(node).match(pattern)
             if (matcher) {
                const matching = matcher[1].split(options.classSymbol)
