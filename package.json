@@ -1,6 +1,6 @@
 {
-   "name": "rehype-block",
-   "version": "0.1.0",
+   "name": "@thomd/rehype-block",
+   "version": "1.0.0",
    "main": "index.js",
    "type": "module",
    "scripts": {
